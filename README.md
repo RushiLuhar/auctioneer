@@ -1,4 +1,0 @@
-auctioneer
-==========
-
-Repository for auctioneer.
