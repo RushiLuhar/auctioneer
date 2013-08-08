@@ -55,6 +55,7 @@ public class BidTrackerImpl implements BidTracker {
 		    // Modify the bid amount
 		    logger.info("Modifying amount for existing Bid: " + existingBid.toString() + " to: " + amount.toPlainString());
 		    existingBid.setBidAmount(amount);
+		    item.bidModified(existingBid);
 		    return existingBid;
 		}
 	    }

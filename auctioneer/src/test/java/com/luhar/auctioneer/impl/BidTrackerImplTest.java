@@ -140,5 +140,18 @@ public class BidTrackerImplTest {
 	assertTrue(alice.getItems().contains(bar));
 	assertTrue(alice.getItems().contains(baz));
     }
+    
+    @Test
+    public void testBidModification() {
+	// Test to see if bid modifications works
+	reset();
+	// Register two bids on one item
+	Bid bid1 = tracker.registerBid(foo, alice, new BigDecimal(10));
+	Bid bid2 = tracker.registerBid(foo, bob, new BigDecimal(11));
+	assertTrue(foo.getWinningBid().equals(bid2));
+	// Now register a new bid
+	assertTrue(bid1 == tracker.registerBid(foo, alice, new BigDecimal(12)));
+	assertTrue(foo.getWinningBid().equals(bid1));
+    }
 
 }

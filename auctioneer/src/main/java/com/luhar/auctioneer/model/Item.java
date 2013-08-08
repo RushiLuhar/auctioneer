@@ -87,6 +87,14 @@ public class Item extends AuctioneerObject {
 	}
     }
     
+    // Method to notify when the bid has been modified
+    public void bidModified(Bid bid) {
+	if (bids.contains(bid)) {
+	    bids.remove(bid);
+	    bids.add(bid);
+	}
+    }
+    
     public Bid getWinningBid() {
 	return bids.firstEntry().getElement();
     }
